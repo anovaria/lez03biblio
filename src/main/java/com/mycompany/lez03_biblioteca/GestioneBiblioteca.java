@@ -5,11 +5,17 @@
  */
 package com.mycompany.lez03_biblioteca;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tss
  */
-public class GestioneBiblioteca extends javax.swing.JFrame {
+public class GestioneBiblioteca extends javax.swing.JFrame implements ActionListener{
 
     Biblioteca myB;
     Bibliotecario leo;
@@ -42,6 +48,10 @@ public class GestioneBiblioteca extends javax.swing.JFrame {
         System.out.println(myB.getListaLibri());
         
         initComponents();
+        cmd.addActionListener(new AscoltaBottone());
+        this.addMouseListener(new AscMouse());
+        
+        
     }
 
     /**
@@ -53,19 +63,19 @@ public class GestioneBiblioteca extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        cmd = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        cmd.setText("Cliccami");
+        cmd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                cmdActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText(".......");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,12 +84,12 @@ public class GestioneBiblioteca extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(336, 336, 336)
-                        .addComponent(jLabel1)))
-                .addContainerGap(431, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(cmd, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(327, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,16 +97,16 @@ public class GestioneBiblioteca extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1)
                 .addGap(121, 121, 121)
-                .addComponent(jButton1)
-                .addContainerGap(310, Short.MAX_VALUE))
+                .addComponent(cmd, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(209, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void cmdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdActionPerformed
      
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_cmdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,7 +145,48 @@ public class GestioneBiblioteca extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton cmd;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    class AscoltaBottone implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            JOptionPane.showMessageDialog(null, "pppp");
+        }
+        
+    }
+}
+class AscMouse implements MouseListener{
+
+    @Override
+    public void mouseClicked(MouseEvent me) {
+        
+    }
+
+    @Override
+    public void mousePressed(MouseEvent me) {
+    
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent me) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent me) {
+        //JOptionPane.showMessageDialog(null, "entra");
+    }
+
+    @Override
+    public void mouseExited(MouseEvent me) {
+        JOptionPane.showMessageDialog(null, "uscito");
+    }
+    
 }
